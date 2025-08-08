@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+}
+.container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+.left__top {
+  display:flex;
+  position:absolute;
+  width:69px;
+  height:16px;
+  top:23px;
+  left:23px;
+  size:14px;
+ line-height:16px;
+ letter-spacing:-2%;
+
+}
+.intro{
+display:block;
+ width: HUG(127px);
+ height: HUG(44px);
+ top:458px;
+ left:176px;
+ font-size:10px;
+ Gap:6px;
+
+}
+
+ .wrapper__top-left-right{
+  width:1920px;
+  height:64px;
+  color:#1A1B1C
+
+ }
+.wrapper__top-left-right:hover{
+  border-color: rgb(122, 26, 42); 
+}
+.left__top .intro {
+  margin-left: 10px;
+  font-weight: normal;
+  color: gray;
+}
+.right__top {
+  position: absolute;
+  top:20px;
+  right:20px;
+}
+.enter__input {
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  font-weight:bold;
+}
+.left__section {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+}
+.right__section {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+}
+.label {
+  font-size:14px;
+  margin: 0 10px;
+}
+.diamonde {
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow {
+  transform: rotate(-45deg);
+  font-size: 14px;
+}
+.heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: normal;
+  text-align: center;
+}
+.bottom__left {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  font-size: 14px;
+  max-width: 300px;
+  line-height: 1.4;
+}
+.big-diamond {
+  position: absolute;
+  width: 300px; /* size of diamond */
+  height: 300px;
+  border: 1px solid #ddd; /* faint line */
+  transform: rotate(45deg);
+  background: transparent;
+  z-index: 0;
+}
+
+/* Position on left side */
+.big-diamond.left {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+/* Position on right side */
+.big-diamond.right {
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%) rotate(45deg);
+}
