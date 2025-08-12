@@ -1,13 +1,22 @@
 body {
-  margin: 0;
+  margin:0;
   font-family: Arial, sans-serif;
-  background: white;
+  background:white;
 }
 .container{
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: white;
+  width:100vw;
+  height:100vh;
+  background:white;
+ overflow: hidden; /* this clips any children moving outside */
+}
+.topBar{
+  position: relative;
+  width:100vw;
+  height:50px;
+  background:white;
+ overflow: hidden; /* this clips any children moving outside */
+
 }
 .left__top {
   display:flex;
@@ -22,41 +31,41 @@ body {
 
 }
 .intro{
-display:block;
- width: HUG(127px);
- height: HUG(44px);
- top:458px;
- left:176px;
- font-size:10px;
- Gap:6px;
+ width:61px;
+ height:17px;
+ top:23px;
+ left:117px;
+ opacity:60%;
 
 }
-
- .wrapper__top-left-right{
+ .wrapper__top__left---right{
   width:1920px;
   height:64px;
-  color:#1A1B1C
-
  }
-.wrapper__top-left-right:hover{
-  border-color: rgb(122, 26, 42); 
-}
 .left__top .intro {
   margin-left: 10px;
   font-weight: normal;
   color: gray;
 }
-.right__top {
-  position: absolute;
-  top:20px;
+.right__top--button {
+  position:absolute; 
+  width: fit-content;
+  height:32px;
+  top: 15px;
   right:20px;
+  background:black;
+  padding: 8px 16px 8px 16px;
+  font-size: 10px;
+  cursor:pointer;
 }
-.enter__input {
-  background: black;
-  color: white;
-  padding: 5px 10px;
-  border: none;
-  font-weight:bold;
+.Enter__code {
+  width:60px;
+  height:16px;
+  font-weight:600;
+  font-size:10px;
+  line-height:16px;
+  letter-spacing:-2%;
+  color:white;
 }
 .left__section {
   position: absolute;
@@ -65,18 +74,19 @@ display:block;
   display: flex;
   align-items: center;
   transform: translateY(-50%);
+  overflow:visible !important;
 }
 .right__section {
-  position: absolute;
-  top: 50%;
-  right: 80px;
-  display: flex;
-  align-items: center;
-  transform: translateY(-50%);
+  position:absolute;
+  top:50%;
+  right:80px;
+  display:flex;
+  align-items:center;
+  transform:translateY(-50%);
 }
 .label {
   font-size:14px;
-  margin: 0 10px;
+  margin: 14px 10px;
 }
 .diamonde {
   width: 40px;
@@ -87,31 +97,72 @@ display:block;
   align-items: center;
   justify-content: center;
 }
-.arrow {
-  transform: rotate(-45deg);
-  font-size: 14px;
+.left__section {
+  z-index: 1;
+}
+.buttin-icon-shrunk {
+  transition: transform 0.3s ease;
+}
+.buttin-icon-shrunk.move-right {
+  transform:translateX(20px);
+}
+.buttin-icon-shrunk{
+position: relative;
+  background-color:white;
+  border:none;
+  display:flex;
+  justify-items:center;
+   cursor: pointer;
+    z-index: 10;    
+}
+.typing_lebal{
+  text-align:center;
+  font-size:32px;
+  opacity:0.8;
+  text-align: center;
+
+}
+.intro_name{
+  position:relative;
+  width:480px;
+  padding:20px;
+  border-bottom:1px solid;
+  border-top:none;
+  border-right:none;
+  border-left:none;
+  font-size:60px;
+  opacity:0.8;
+}
+.buttin-icon-shrunk{
+position: relative;
+  background-color:white;
+  border:none;
+  display:flex;
+  justify-items:center;
+   cursor: pointer;
+    z-index: 10;    
 }
 .heading {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  font-weight: normal;
-  text-align: center;
+   display: inline-block;
+
+
+  font-size:90px;
+  font-weight:600;
+  
 }
 .bottom__left {
   position: absolute;
-  bottom: 30px;
-  left: 20px;
+  bottom:50px;
+  left:70px;
   font-size: 14px;
-  max-width: 300px;
+  width:500px;
   line-height: 1.4;
 }
 .big-diamond {
   position: absolute;
-  width: 300px; /* size of diamond */
-  height: 300px;
+  width:460px; /* size of diamond */
+  height:460px;
   border: 1px solid #ddd; /* faint line */
   transform: rotate(45deg);
   background: transparent;
@@ -129,4 +180,14 @@ display:block;
   top: 50%;
   right: 0;
   transform: translate(50%, -50%) rotate(45deg);
+}
+.heading {
+  position: relative;
+  text-align: center;
+  transition: transform 4s ease-in-out;
+}
+
+/* When hovering left button, move heading towards right */
+.heading.move-right {
+  transform:translateX(200px); /* adjust this value to match right button position */
 }

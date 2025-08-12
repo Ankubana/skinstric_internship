@@ -1,55 +1,66 @@
-import React from "react";
-import "./index.css"
-import BigDiamond from "../component/BigDiamonde";
-const Home=()=>{
- 
-return(
+import React, { useState, useEffect } from "react";
+import "./index.css";
+import buttinIcon from "../Assets/buttin-icon-shrunk.png";
+import buttinIcon2 from "../Assets/button-icon-text-shrunk (2).png";
+import {Link} from "react-router-dom"
+const Home = () => {
+  const [isHoveringLeft, setIsHoveringLeft] = useState(false);
+  const [hideRightBg, setHideRightBg] = useState(false);
 
-<> 
-{/*top left corner*/}
-<div className="container">
-<BigDiamond position="left" />
- <BigDiamond position="right" />
- < div className="wrapper__top-left-right">
- < div className="left__top">
-< span className="brand">SKINSTRIC</span>
- <span className="intro"> [INTRO]</span>
- </div>
- {/*top right corner*/}
- <div  className="right__top">
-  <button className="code_input">Enter Code</button>
+  useEffect(() => {
+    let timer;
+    if (isHoveringLeft) {
+      timer = setTimeout(() => {
+        setHideRightBg(true); // only hide right bg diamond
+      }, 1500); // match text forward animation duration
+    } else {
+      setHideRightBg(false); // show right bg when going back
+    }
+    return () => clearTimeout(timer);
+  }, [isHoveringLeft]);
 
- </div>
- </div>
- {/* Left diamonde button */}
- <div className="left__section">
-   <div className="diamonde">
-    <span className="arrow">&#9664;</span>
-   </div>
-   <span className="label">DISCOVER A.I.</span>
- </div>
-   {/*right diamonde button*/ }
-<div className="right__section">
-  <span className="label">TAKE TEST</span>
-  <div className="diamonde">
-    <span className="arrow">&#9654;</span>
+  return (
+    <div className="container">
+    
+      {/* Left big diamond always visible */}
+      <div className="big-diamond left"></div>
+
+      {/* Right big diamond only visible when not hovering */}
+      {!hideRightBg && <div className="big-diamond right"></div>}
+
+      {/* Left arrow button */}
+      <div className="left__section">
+        <button
+          className={`buttin-icon-shrunk ${isHoveringLeft ? "move-right" : ""}`}
+          onMouseEnter={() => setIsHoveringLeft(true)}
+          onMouseLeave={() => setIsHoveringLeft(false)}
+        >
+       <img src={buttinIcon} alt="Discover AI icon" />
+        <span className="label">DISCOVER A.I.</span>
+        </button>
+          
+      </div>
+      {/* Right arrow diamond button */}
+      {!hideRightBg && (
+        <Link to="/Test">
+  <div className="right__section">
+    <button className="buttin-icon-shrunk">
+      <img src={buttinIcon2} alt="Right icon" />
+    </button>
   </div>
-</div>
- <h1 className="heading">
-  sophesticated <br/> skincare
- </h1>
- {/*bottom left description*/}
- <div className="bottom__left">
-SKINSTRIC DEVELOPED AN A.I. THAT CREATES A <br />
- HIGHLY-PERSONALIZED ROUTINE TAILORED TO <br />
- WHAT YOUR SKIN NEEDS.
- </div>
-</div>
-
-</>
-
-)
-
-
-}
-export default Home
+</Link>
+      )}
+      {/* Center heading */}
+      <h1 className={`heading ${isHoveringLeft ? "move-right" : ""}`}>
+           Sophisticated <br/>skincare
+      </h1>
+      {/* Bottom left text */}
+      <div className="bottom__left">
+        SKINSTRIC DEVELOPED AN A.I. THAT CREATES A <br />
+        HIGHLY-PERSONALIZED ROUTINE TAILORED TO <br />
+        WHAT YOUR SKIN NEEDS.
+      </div>
+    </div>
+  );
+};
+export default Home;

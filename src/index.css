@@ -40,7 +40,17 @@ body {
   display: flex;
   align-items: center;
   transform: translateY(-50%);
+   overflow: hidden;
 }
+.left__section--back{
+  position: absolute;
+  bottom:80px;
+  left:1px;
+  display: flex;
+  align-items:center;
+   overflow: hidden;
+}
+
 .right-section {
   position: absolute;
   top: 50%;
@@ -68,11 +78,11 @@ body {
 }
 .heading {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 10%;
+  left:10%;
   transform: translate(-50%, -50%);
-  font-size: 48px;
-  font-weight: normal;
+   font-size:90px;
+  font-weight:600;
   text-align: center;
 }
 .bottom-left {
@@ -82,4 +92,246 @@ body {
   font-size: 14px;
   max-width: 300px;
   line-height: 1.4;
+}
+.buttin-icon-shrunk {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.dashed-box2-wrapper{
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+
+}
+
+.buttin-icon-shrunk:hover {
+  transform: translateX(30px); /* Moves right by 10px */
+}
+
+.dashed-box-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+/* Outer dashed border */
+.dashed-box_1{
+  padding:100px 0;
+  border:3px dashed #aaa;;
+  position:relative;
+  animation:orbit 2s ease infinit;
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(200px);
+  }
+  100% {
+    transform: rotate(360deg) translateX(200px);
+  }
+}
+.dashed-box2{
+  padding: 40px 32px;
+  border: 3px dashed #aaa;;
+  position:relative;
+}
+
+.dashed-box3{
+  padding: 40px 32px;
+  border: 3px dashed #aaa;;
+  position:relative;
+}
+
+
+/* Animated border via pseudo-element */
+.dashed-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 3px dashed black;
+  animation: dashMove 4s linear infinite;
+  pointer-events: none;
+}
+ 
+/* Content text */
+.content {
+  font-size: 48px;
+  font-weight: 300;
+  text-align: center;
+  color: #333;
+}
+
+.blinking {
+  border-right: 2px solid black;
+  animation: blink 1s step-end infinite;
+  text-align:center;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  10% { border-color: black }
+}
+/* Dashed animation effect */
+@keyframes dashMove {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Fullscreen container */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Centered input block */
+.input-center {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.typing_label {
+  font-size: 14px;
+  color: #888;
+}
+
+.intro_name {
+  font-size: 24px;
+  border: none;
+  border-bottom: 2px solid #000;
+  text-align: center;
+  outline: none;
+  width: 300px;
+  background: transparent;
+}
+
+/* Orbiting box container */
+.orbit-box {
+  position: absolute;
+  top: 40%;
+  left:30%;
+  animation: orbit 8s linear infinite;
+  transform-origin: center;
+  z-index: 1;
+}
+
+/* Dashed box with shadow */
+.dashed-shadow-box {
+  width: 360px;
+  height: 700px;
+  border: 2px dashed #aaa;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  transform: translateX(100px); /* Offset from center */
+}
+
+/* Circular orbit animation */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Fullscreen center layout */
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Input wrapper stays still in center */
+.input-wrapper {
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+}
+
+/* Input styling */
+.typing_label {
+  font-size: 14px;
+  color: #777;
+justify-content: center;
+}
+
+.intro_name {
+  font-size: 24px;
+  border: none;
+  border-bottom: 2px solid #000;
+  text-align: center;
+  outline: none;
+  width: 300px;
+  background: transparent;
+}
+
+/* Rotating dashed boxes */
+.rotating-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border:3px dashed  #aaa;
+  transform-origin: center;
+  animation-timing-function: linear;
+}
+
+/* Individual box sizes and speeds */
+.box1 {
+  width: 490px;
+  height:490px;
+  margin: -250px 0 0 -250px; /* Center the box */
+  animation: spin1 100s ease infinite;
+  border-radius:12px;
+   opacity:25%
+
+
+}
+
+.box2 {
+  width: 500px;
+  height: 500px;
+  margin: -250px 0 0 -250px;
+  animation: spin2 300s  ease infinite ;
+  border-radius:12px;
+  opacity:15%
+}
+
+.box3 {
+  width: 520px;
+  height:520px;
+  margin: -250px 0 0 -250px;
+  animation: spin3 500s ease infinite;
+  border-radius: 12px;
+  opacity:10%
+}
+
+/* Animations */
+@keyframes spin1 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin2 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin3 {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
