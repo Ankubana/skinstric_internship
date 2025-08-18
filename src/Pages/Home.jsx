@@ -12,7 +12,7 @@ const Home = () => {
     if (isHoveringLeft) {
       timer = setTimeout(() => {
         setHideRightBg(true); // only hide right bg diamond
-      }, 1500); // match text forward animation duration
+      },500); // match text forward animation duration
     } else {
       setHideRightBg(false); // show right bg when going back
     }
@@ -42,7 +42,7 @@ const Home = () => {
       </div>
       {/* Right arrow diamond button */}
       {!hideRightBg && (
-        <Link to="/Test">
+        <Link to="/testing">
   <div className="right__section">
     <button className="buttin-icon-shrunk">
       <img src={buttinIcon2} alt="Right icon" />

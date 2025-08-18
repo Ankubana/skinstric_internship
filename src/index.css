@@ -2,12 +2,42 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: white;
+  overflow: hidden;
+  width: 100vw;
+  height:100vh;
 }
 .container{
   position: relative;
   width: 100vw;
   height: 100vh;
   background: white;
+  overflow:hidden;
+  
+}
+.camera-icon {
+  width: 60px;
+  height: 60px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+}
+.button{
+ border:none;
+ background-color: #000;
+
+}
+h4{
+  text-align: center;
+}
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+button::-moz-focus-inner {
+  border: 0;
 }
 .left__top {
   position: absolute;
@@ -45,10 +75,11 @@ body {
 .left__section--back{
   position: absolute;
   bottom:80px;
-  left:1px;
+  left:20px;
   display: flex;
   align-items:center;
    overflow: hidden;
+
 }
 
 .right-section {
@@ -58,6 +89,7 @@ body {
   display: flex;
   align-items: center;
   transform: translateY(-50%);
+  overflow: hidden;
 }
 .label {
   font-size: 14px;
@@ -78,12 +110,16 @@ body {
 }
 .heading {
   position: absolute;
-  top: 10%;
+  transform:translate(-50%,-50%);
+  font-size:90px;
+  top:10%;
   left:10%;
-  transform: translate(-50%, -50%);
-   font-size:90px;
   font-weight:600;
-  text-align: center;
+  margin-left:20%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+   display: inline-block; 
 }
 .bottom-left {
   position: absolute;
@@ -93,6 +129,24 @@ body {
   max-width: 300px;
   line-height: 1.4;
 }
+.right__section--procceed{
+position: absolute;
+  bottom:80px;
+  right:50px;
+  display: flex;
+  align-items:center;
+   overflow: hidden;
+   animation:proceed 0.8s ease ;
+}
+
+@keyframes proceed{
+   0%{transform:translate(-100px)
+     }
+    100%{
+      transform:translate(50px);
+    }
+}
+
 .buttin-icon-shrunk {
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -104,13 +158,14 @@ body {
   align-items: center;
   justify-content: center;
   background: white;
-
 }
-
 .buttin-icon-shrunk:hover {
-  transform: translateX(30px); /* Moves right by 10px */
+  transform: translateX();
 }
-
+.input_control{
+  color:red;
+  text-align:center;
+}
 .dashed-box-wrapper {
   height: 100vh;
   display: flex;
@@ -118,7 +173,53 @@ body {
   justify-content: center;
   background: white;
 }
+.loading-point{
+  font-size:20px;
+  opacity:.5;
+}
 
+/* Styling the circles */
+.circle {
+  display:inline-block;
+  text-align: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cccecf; /* You can change the color */
+  opacity:1; /* Initially, the circles are invisible */
+  animation-timing-function: ease;
+  animation-iteration-count: infinite; /* Keep animating */
+}
+.skeleton{
+margin:auto;
+}
+/* Animation for each circle with staggered fade-in/out */
+.circle1 {
+  animation: fade-up 4s  infinite; /* Starts immediately */
+}
+.circle2 {
+  animation: fade-up 2s  infinite; /* Starts 1 second after circle1 */
+}
+.circle3 {
+  animation: fade-up  4s  infinite; /* Starts 2 seconds after circle1 */
+}
+
+/* Keyframe animation to fade the circle up and down */
+/* Keyframe animation to fade and move the circle up and down */
+@keyframes fade-up {
+  0% {
+    opacity:1; /* Start fully transparent */
+    transform: translateY(0); /* Start at the original position */
+  }
+  50% {
+    opacity: 1; /* Fully visible */
+    transform: translateY(-3px); /* Move 20px upwards */
+  }
+  100% {
+    opacity:1; /* Fade back out */
+    transform: translateY(0); /* Return to the original position */
+  }
+}
 /* Outer dashed border */
 .dashed-box_1{
   padding:100px 0;
@@ -126,6 +227,7 @@ body {
   position:relative;
   animation:orbit 2s ease infinit;
 }
+
 @keyframes orbit {
   0% {
     transform: rotate(0deg) translateX(200px);
@@ -182,29 +284,17 @@ body {
   }
 }
 
-/* Fullscreen container */
-.container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 /* Centered input block */
 .input-center {
   position: relative;
   z-index: 10;
   text-align: center;
 }
-
 .typing_label {
   font-size: 14px;
   color: #888;
 }
-
 .intro_name {
   font-size: 24px;
   border: none;
@@ -235,6 +325,7 @@ body {
   transform: translateX(100px); /* Offset from center */
 }
 
+
 /* Circular orbit animation */
 @keyframes orbit {
   0% {
@@ -254,6 +345,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 /* Input wrapper stays still in center */
@@ -269,7 +361,12 @@ body {
   color: #777;
 justify-content: center;
 }
-
+.Camera-access{
+  width:400px;
+  height:180px;
+  background-color: black;
+  margin-left:35%;
+}
 .intro_name {
   font-size: 24px;
   border: none;
@@ -279,17 +376,88 @@ justify-content: center;
   width: 300px;
   background: transparent;
 }
+.start_anal{
+  margin-left:24px;
+  top:60px;
+}
 
 /* Rotating dashed boxes */
 .rotating-box {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   border:3px dashed  #aaa;
   transform-origin: center;
   animation-timing-function: linear;
 }
+.allow{
+color:white;
+ background-color:black;
+ padding:0 3px;
+ font-size:24px;
+ margin-right:2%;
+padding:0 12px;
+}
 
+button {
+  border: none;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.scan{
+ color:pink;
+ background-color:black;
+ padding:px;
+ font-size:24px;
+ right:2px;
+ margin-left:50%;
+}
+.line{
+ width:350px;
+ color:white;
+ background-color:white;
+}
+.scan-face{
+ color:white;
+ background-color: #000;
+}
+
+.Camera-access{
+ background-color:black;
+ width:350px;
+ height:150px;
+ color:white;
+ margin-left:50%;
+}
+.Take_Photo{
+ background-color:black;
+ width:100vw;
+ height:100vh;
+ color:white;
+ position: relative;
+}
+.photo_size{
+          width:100%;
+          height:100%;
+          background-color:#000;
+          object-fit:cover;
+}
+.capture-btn{
+position:absolute;
+ top: 50%;
+ right:2px;
+ display:flex;
+ justify-content:end;
+ align-items:center;
+  transform: "translateX(-50%)",
+}
+.Take_Photo ::after .capture-btn{
+top:50%;
+
+}
+.camera-img{
+ width:200px;
+}
 /* Individual box sizes and speeds */
 .box1 {
   width: 490px;
@@ -298,7 +466,6 @@ justify-content: center;
   animation: spin1 100s ease infinite;
   border-radius:12px;
    opacity:25%
-
 
 }
 
@@ -319,7 +486,20 @@ justify-content: center;
   border-radius: 12px;
   opacity:10%
 }
+.skeleton-loader {
+  background: linear-gradient(-90deg, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%);
+  background-size: 400% 400%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
 
+@keyframes pulse {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
 /* Animations */
 @keyframes spin1 {
   0% { transform: rotate(0deg); }
@@ -334,4 +514,145 @@ justify-content: center;
 @keyframes spin3 {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+.diamond-container {
+  position:absolute;
+  display:flex;
+  align-items:center;
+  top:40%;
+  width:505px;
+  height:205px;
+  margin-left:10%;
+}
+
+.diamond-img {
+  position:absolute;
+  width: 405px;
+  height: 405px;
+  animation: spin-slowet 20s linear infinite;
+}
+
+.center-icon {
+  width: 60px;
+  height: 60px;
+  border-radius:50%;
+  background: black;
+  z-index:2;
+}/* image size*/
+.diamond-img{
+  width:150px;
+  height:150px;
+  top:4px;
+  margin-left:20%;
+}
+/* Arrow styling */
+.arrow {
+  position: absolute;
+  width: 80px; /* arrow length */
+  height: 2px;
+  background-color: black;
+  top:4%; /* vertical position tweak */
+  left:41.6%; /* horizontal position tweak */
+  transform: rotate(320deg); /* tilt upward */
+  opacity:0.5;
+}
+.arrow-label{
+ top:1%;
+color: red;
+}
+
+/* Arrowhead */
+.arrow::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top:50%;
+  transform: translateY(-50%) rotate(45deg);
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-left:2px solid black;
+   border-bottom:2px solid black;
+   font-weight:100;
+   background-color:black;
+  
+}
+.capture-btn {
+top:47%;
+ position:absolute;
+  right:20px;
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* center inner circle vertically */
+}
+.camera-overlay {
+  position: absolute;
+  top:50%;
+   /* distance from top */
+  width:15%;
+  right:3%;
+  display: flex;
+  pointer-events: none; /* allow clicks to pass to button */
+  justify-content:space-around;
+   flex-wrap: wrap;
+
+}
+.Photo_instructions{
+ position: absolute;
+  width:100%;
+  display: flex;
+  justify-content:center;
+}
+.Photo_instructions--wrapper{
+position:relative;
+  bottom:33% ;
+  width:50%;
+  justify-content: center;
+  margin:auto;
+}
+.photo_instruction{
+padding:0 10px;
+font-size:12px;
+}
+.take-picture-text {
+  color:white; /* makes it visible over dark video */
+  font-size: 18px;
+  font-weight: bold;
+   display: flex;
+  pointer-events: none; /* allow clicks to pass to button */
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8); /* adds contrast */
+
+} 
+
+.Camera_icon {
+  border:2px solid  black; /* icon color inside inner circle */
+  width: 20px;
+  height: 20px;
+  border-radius:50%;
+  padding:15px 15px 15px 15px;
+  opacity:0.5;
+  font-weight:600;
+}
+/* Label */
+.arrow-label {
+  position: absolute;
+  top:-23%; /* Adjust to align with arrow tip */
+  left:57%; /* Offset from arrow tip */
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+  text-align: left;
+  opacity:5;
+  font-weight:500;
+}
+
+@keyframes spin-slowest {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

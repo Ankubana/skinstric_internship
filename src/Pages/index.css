@@ -15,7 +15,7 @@ body {
   width:100vw;
   height:50px;
   background:white;
- overflow: hidden; /* this clips any children moving outside */
+  /* this clips any children moving outside */
 
 }
 .left__top {
@@ -115,23 +115,28 @@ position: relative;
    cursor: pointer;
     z-index: 10;    
 }
-.typing_lebal{
-  text-align:center;
-  font-size:32px;
-  opacity:0.8;
-  text-align: center;
-
-}
-.intro_name{
+.typing_label{
+  display:flex;
+  font-size:16px;
+  opacity:0.5;
+  font-weight:600;
+  justify-content:center;
+} 
+.intro{
   position:relative;
   width:480px;
+  top:-150pxpx;
   padding:20px;
   border-bottom:1px solid;
   border-top:none;
   border-right:none;
   border-left:none;
   font-size:60px;
-  opacity:0.8;
+  opacity:1;
+ margin-left:-20%}
+.introduction{
+  opacity:0.5;
+  font-size:12px;
 }
 .buttin-icon-shrunk{
 position: relative;
@@ -142,15 +147,8 @@ position: relative;
    cursor: pointer;
     z-index: 10;    
 }
-.heading {
-  position: absolute;
-   display: inline-block;
 
 
-  font-size:90px;
-  font-weight:600;
-  
-}
 .bottom__left {
   position: absolute;
   bottom:50px;
@@ -184,10 +182,13 @@ position: relative;
 .heading {
   position: relative;
   text-align: center;
-  transition: transform 4s ease-in-out;
+  transition: transform 0.5s ease-in;
+  display: inline-block; /* Ensure text behaves as inline-block */
+
 }
 
 /* When hovering left button, move heading towards right */
 .heading.move-right {
-  transform:translateX(200px); /* adjust this value to match right button position */
+  top:10%;
+  transform:translateX(20px); /* adjust this value to match right button position */
 }

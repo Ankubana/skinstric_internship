@@ -6,9 +6,8 @@ const TopBar = () => {
       {/* Top left brand */}
       <div className="left__top">
         <span>SKINSTRIC</span>
-        <span className="intro">[INTRO]</span>
+        <span className="introduction"> [INTRO]</span>
       </div>
-
       {/* Right button */}
       <button className="right__top--button">
         <span className="Enter__code">ENTER CODE</span>
