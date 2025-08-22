@@ -1,194 +1,66 @@
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:white;
-}
-.container{
+.container {
   position: relative;
-  width:100vw;
-  height:100vh;
-  background:white;
- overflow: hidden; /* this clips any children moving outside */
-}
-.topBar{
-  position: relative;
-  width:100vw;
-  height:50px;
-  background:white;
-  /* this clips any children moving outside */
-
-}
-.left__top {
-  display:flex;
-  position:absolute;
-  width:69px;
-  height:16px;
-  top:23px;
-  left:23px;
-  size:14px;
- line-height:16px;
- letter-spacing:-2%;
-
-}
-.intro{
- width:61px;
- height:17px;
- top:23px;
- left:117px;
- opacity:60%;
-
-}
- .wrapper__top__left---right{
-  width:1920px;
-  height:64px;
- }
-.left__top .intro {
-  margin-left: 10px;
-  font-weight: normal;
-  color: gray;
-}
-.right__top--button {
-  position:absolute; 
-  width: fit-content;
-  height:32px;
-  top: 15px;
-  right:20px;
-  background:black;
-  padding: 8px 16px 8px 16px;
-  font-size: 10px;
-  cursor:pointer;
-}
-.Enter__code {
-  width:60px;
-  height:16px;
-  font-weight:600;
-  font-size:10px;
-  line-height:16px;
-  letter-spacing:-2%;
-  color:white;
-}
-.left__section {
-  position: absolute;
-  top: 50%;
-  left: 80px;
-  display: flex;
-  align-items: center;
-  transform: translateY(-50%);
-  overflow:visible !important;
-}
-.right__section {
-  position:absolute;
-  top:50%;
-  right:80px;
-  display:flex;
-  align-items:center;
-  transform:translateY(-50%);
-}
-.label {
-  font-size:14px;
-  margin: 14px 10px;
-}
-.diamonde {
-  width: 40px;
-  height: 40px;
-  border: 1px solid gray;
-  transform: rotate(45deg);
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  background:white;
 }
-.left__section {
-  z-index: 1;
+
+
+/* Center circle */
+.center-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  z-index: 2;
 }
-.buttin-icon-shrunk {
-  transition: transform 0.3s ease;
+
+/* Text with line */
+.text-line {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
 }
-.buttin-icon-shrunk.move-right {
-  transform:translateX(20px);
-}
-.buttin-icon-shrunk{
-position: relative;
-  background-color:white;
-  border:none;
-  display:flex;
-  justify-items:center;
-   cursor: pointer;
-    z-index: 10;    
-}
-.typing_label{
-  display:flex;
+ .text_black{
   font-size:16px;
-  opacity:0.5;
-  font-weight:600;
-  justify-content:center;
-} 
-.intro{
-  position:relative;
-  width:480px;
-  top:-150pxpx;
-  padding:20px;
-  border-bottom:1px solid;
-  border-top:none;
-  border-right:none;
-  border-left:none;
-  font-size:60px;
-  opacity:1;
- margin-left:-20%}
-.introduction{
-  opacity:0.5;
-  font-size:12px;
-}
-.buttin-icon-shrunk{
-position: relative;
-  background-color:white;
-  border:none;
-  display:flex;
-  justify-items:center;
-   cursor: pointer;
-    z-index: 10;    
-}
-
-
-.bottom__left {
-  position: absolute;
-  bottom:50px;
-  left:70px;
-  font-size: 14px;
-  width:500px;
-  line-height: 1.4;
-}
-.big-diamond {
-  position: absolute;
-  width:460px; /* size of diamond */
-  height:460px;
-  border: 1px solid #ddd; /* faint line */
-  transform: rotate(45deg);
-  background: transparent;
-  z-index: 0;
-}
-
-/* Position on left side */
-.big-diamond.left {
-  top: 50%;
-  left: 0;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-/* Position on right side */
-.big-diamond.right {
-  top: 50%;
-  right: 0;
-  transform: translate(50%, -50%) rotate(45deg);
-}
-.heading {
-  position: relative;
+  font-weight:bold;
+   opacity:0.8;
+   color: black;
+   padding:5px;
+ }
+.text-line .line {
+  width: 80px;
+  height: 1px;
+  background: #666;
   text-align: center;
-  transition: transform 0.5s ease-in;
-  display: inline-block; /* Ensure text behaves as inline-block */
-
 }
 
-/* When hovering left button, move heading towards right */
-.heading.move-right {
-  top:10%;
-  transform:translateX(20px); /* adjust this value to match right button position */
+.text-line .text {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+/* Animations */
+@keyframes spin-slow {
+  from { transform: rotate(45deg); }
+  to { transform: rotate(405deg); }
+}
+
+@keyframes spin-slower {
+  from { transform: rotate(45deg); }
+  to { transform: rotate(-315deg); }
 }

@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+padding:0;
+margin:0;
+box-sizing:border-box;
+font-family: 'Inter', system-ui;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,14 +14,17 @@ body {
   width: 100vw;
   height:100vh;
 }
-.container{
-  position: relative;
+.container {
+  position:relative;
   width: 100vw;
   height: 100vh;
-  background: white;
-  overflow:hidden;
-  
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .camera-icon {
   width: 60px;
   height: 60px;
@@ -91,9 +102,12 @@ button::-moz-focus-inner {
   transform: translateY(-50%);
   overflow: hidden;
 }
-.label {
-  font-size: 14px;
-  margin: 0 10px;
+.Back_diamond {
+  font-size: 16px;
+  margin:10px 10px;
+  color:black;
+  font-weight:600 ;
+  opacity:0.8;
 }
 .diamond {
   width: 40px;
@@ -108,27 +122,7 @@ button::-moz-focus-inner {
   transform: rotate(-45deg);
   font-size: 14px;
 }
-.heading {
-  position: absolute;
-  transform:translate(-50%,-50%);
-  font-size:90px;
-  top:10%;
-  left:10%;
-  font-weight:600;
-  margin-left:20%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-   display: inline-block; 
-}
-.bottom-left {
-  position: absolute;
-  bottom: 30px;
-  left: 20px;
-  font-size: 14px;
-  max-width: 300px;
-  line-height: 1.4;
-}
+
 .right__section--procceed{
 position: absolute;
   bottom:80px;
@@ -163,8 +157,8 @@ position: absolute;
   transform: translateX();
 }
 .input_control{
-  color:red;
   text-align:center;
+  color:red;
 }
 .dashed-box-wrapper {
   height: 100vh;
@@ -177,11 +171,13 @@ position: absolute;
   font-size:20px;
   opacity:.5;
 }
-
+.typinglabel{
+  font-size:24px;
+}
 /* Styling the circles */
 .circle {
   display:inline-block;
-  text-align: center;
+  text-align:center;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -192,6 +188,18 @@ position: absolute;
 }
 .skeleton{
 margin:auto;
+text-align:center;
+
+}
+.proceed_text{
+  font-size:16px;
+  font-family:bold;
+  padding:5px;
+  color: black;
+}
+.process_data{
+font-size:18px;
+opacity:0.6;
 }
 /* Animation for each circle with staggered fade-in/out */
 .circle1 {
@@ -273,6 +281,7 @@ margin:auto;
   text-align:center;
 }
 
+
 @keyframes blink {
   from, to { border-color: transparent }
   10% { border-color: black }
@@ -284,7 +293,6 @@ margin:auto;
   }
 }
 
-
 /* Centered input block */
 .input-center {
   position: relative;
@@ -292,9 +300,11 @@ margin:auto;
   text-align: center;
 }
 .typing_label {
-  font-size: 14px;
-  color: #888;
+  font-size:14px;
+  color:#888;
+   
 }
+
 .intro_name {
   font-size: 24px;
   border: none;
@@ -336,17 +346,6 @@ margin:auto;
   }
 }
 /* Fullscreen center layout */
-.container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
 
 /* Input wrapper stays still in center */
 .input-wrapper {
@@ -357,15 +356,16 @@ margin:auto;
 
 /* Input styling */
 .typing_label {
-  font-size: 14px;
+  font-size: 18px;
   color: #777;
 justify-content: center;
 }
 .Camera-access{
   width:400px;
   height:180px;
+  left:35%;
   background-color: black;
-  margin-left:35%;
+ position:absolute;
 }
 .intro_name {
   font-size: 24px;
@@ -383,10 +383,18 @@ justify-content: center;
 
 /* Rotating dashed boxes */
 .rotating-box {
+ position: absolute;
+  border:4px dotted #A0A4AB;
+  transform: rotate(45deg);
+  letter-spacing:5px;
+  transform-origin: center;
+  animation-timing-function: linear;
+}
+.diamond-box{
   position: absolute;
-  top: 40%;
-  left: 50%;
-  border:3px dashed  #aaa;
+  border:4px dotted #A0A4AB;
+  transform: rotate(45deg);
+  letter-spacing:5px;
   transform-origin: center;
   animation-timing-function: linear;
 }
@@ -394,9 +402,9 @@ justify-content: center;
 color:white;
  background-color:black;
  padding:0 3px;
- font-size:24px;
+ font-size:20px;
  margin-right:2%;
-padding:0 12px;
+padding:0 24px;
 }
 
 button {
@@ -405,10 +413,10 @@ button {
   box-shadow: none !important;
 }
 .scan{
- color:pink;
+ color:gray;
  background-color:black;
  padding:px;
- font-size:24px;
+ font-size:20px;
  right:2px;
  margin-left:50%;
 }
@@ -416,29 +424,34 @@ button {
  width:350px;
  color:white;
  background-color:white;
+ margin-top:10%;
+ 
+
 }
 .scan-face{
+  display: flex;
  color:white;
  background-color: #000;
+ text-align:center;
+ margin-left:20px;
 }
 
 .Camera-access{
  background-color:black;
  width:350px;
- height:150px;
+ height:130px;
  color:white;
- margin-left:50%;
 }
 .Take_Photo{
- background-color:black;
+ background-color:white;
  width:100vw;
  height:100vh;
  color:white;
  position: relative;
 }
 .photo_size{
-          width:100%;
-          height:100%;
+          width:100vw;
+          height:100vh;
           background-color:#000;
           object-fit:cover;
 }
@@ -460,31 +473,109 @@ top:50%;
 }
 /* Individual box sizes and speeds */
 .box1 {
-  width: 490px;
-  height:490px;
-  margin: -250px 0 0 -250px; /* Center the box */
-  animation: spin1 100s ease infinite;
+  top:50%;
+  width: 440px;
+  height:440px;
+  margin:-180px 0 0 -18px; /* Center the box */
+  animation: spin1 50s ease infinite;
   border-radius:12px;
-   opacity:25%
+  opacity:0.4;
 
 }
 
+.capture_photo{
+  display:flex;
+  justify-content:center;
+  width:100vw;
+  object-fit:cover;
+}
+.captured-photo{
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+}
+.btn_take--photo{
+ display: flex;
+ justify-content:center;
+}
 .box2 {
+  top:50%;
   width: 500px;
   height: 500px;
-  margin: -250px 0 0 -250px;
-  animation: spin2 300s  ease infinite ;
+  animation: spin-slower 50s linear infinite reverse;
+  margin: -200px 0 0 -20px;
   border-radius:12px;
-  opacity:15%
+  opacity:0.2
+}
+.box3 {
+  top:50%;
+  width:550px;
+  height:550px;
+  animation: spin-slow 15s linear infinite;
+  margin: -220px 0 0 -20px;
+  border-radius:12px;
+  opacity:0.1
+}
+.box4 {
+  top:50%;
+  width: 240px;
+  height:240px;
+  margin:-150px 0 0 270px; /* Center the box */
+  animation: spin1 50s ease infinite;
+  border-radius:12px;
+  opacity:0.4;
+
 }
 
-.box3 {
-  width: 520px;
-  height:520px;
-  margin: -250px 0 0 -250px;
-  animation: spin3 500s ease infinite;
-  border-radius: 12px;
-  opacity:10%
+.box5{
+  top:50%;
+  width: 280px;
+  height:280px;
+  animation: spin-slower 50s linear infinite reverse;
+  margin: -180px 0 0 260px;
+  border-radius:12px;
+  opacity:0.2
+}
+.box6 {
+  top:50%;
+  width:320px;
+  height:320px;
+  animation: spin-slow 15s linear infinite;
+  margin: -190px 0 0 250px;
+  border-radius:12px;
+  opacity:0.1
+}
+.box7 {
+  top:50%;
+  width: 240px;
+  height:240px;
+  right:17%;
+  margin:-150px 0 0 270px; /* Center the box */
+  animation: spin1 50s ease infinite;
+  border-radius:12px;
+  opacity:0.4;
+
+}
+
+.box8{
+  top:50%;
+  width: 280px;
+  right:17%;
+  height:280px;
+  animation: spin-slower 50s linear infinite reverse;
+  margin: -180px 0 0 260px;
+  border-radius:12px;
+  opacity:0.2
+}
+.box9 {
+  top:50%;
+  width:320px;
+  right:17%;
+  height:320px;
+  animation: spin-slow 15s linear infinite;
+  margin: -190px 0 0 250px;
+  border-radius:12px;
+  opacity:0.1
 }
 .skeleton-loader {
   background: linear-gradient(-90deg, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%);
@@ -506,23 +597,14 @@ top:50%;
   100% { transform: rotate(360deg); }
 }
 
-@keyframes spin2 {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 
-@keyframes spin3 {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
 .diamond-container {
   position:absolute;
   display:flex;
   align-items:center;
   top:40%;
-  width:505px;
+  width:100vw;
   height:205px;
-  margin-left:10%;
 }
 
 .diamond-img {
@@ -530,6 +612,13 @@ top:50%;
   width: 405px;
   height: 405px;
   animation: spin-slowet 20s linear infinite;
+}
+.galley-img {
+  position:absolute;
+  right:20%;
+  width:150px;
+  height:150px;
+  bottom:30px;
 }
 
 .center-icon {
@@ -547,18 +636,15 @@ top:50%;
 }
 /* Arrow styling */
 .arrow {
-  position: absolute;
+  position:absolute;
   width: 80px; /* arrow length */
   height: 2px;
   background-color: black;
-  top:4%; /* vertical position tweak */
-  left:41.6%; /* horizontal position tweak */
+  top:3%; /* vertical position tweak */
+  left:27.2%; /* horizontal position tweak */
   transform: rotate(320deg); /* tilt upward */
   opacity:0.5;
-}
-.arrow-label{
- top:1%;
-color: red;
+
 }
 
 /* Arrowhead */
@@ -568,15 +654,16 @@ color: red;
   right: 0;
   top:50%;
   transform: translateY(-50%) rotate(45deg);
-  width:2px;
-  height:2px;
+  width: 3px;
+  height:3px;
   border-radius:50%;
-  border-top: 2px solid black;
-  border-right: 2px solid black;
-  border-left:2px solid black;
-   border-bottom:2px solid black;
+  border-top: 2px solid ;
+  border-right: 2px solid ;
+  border-left:2px solid ;
+   border-bottom:2px solid;
    font-weight:100;
-   background-color:black;
+   background-color:white;
+
   
 }
 .capture-btn {
@@ -616,6 +703,15 @@ position:relative;
   justify-content: center;
   margin:auto;
 }
+.success-message{
+ font-size:20px;
+ opacity:0.8;
+}
+.appre_message{
+ font-size:24px;
+ padding:20px
+
+}
 .photo_instruction{
 padding:0 10px;
 font-size:12px;
@@ -643,11 +739,11 @@ font-size:12px;
 .arrow-label {
   position: absolute;
   top:-23%; /* Adjust to align with arrow tip */
-  left:57%; /* Offset from arrow tip */
+  left:32%; /* Offset from arrow tip */
   font-size: 14px;
   color: #444;
   line-height: 1.4;
-  text-align: left;
+
   opacity:5;
   font-weight:500;
 }
@@ -656,3 +752,612 @@ font-size:12px;
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+
+.overlay-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Buttons styling */
+.photo-actions {
+  display: flex;
+  justify-content: space-between;
+  top:20px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Adjust the "Retake" button */
+.btn:focus {
+  outline: none;
+}
+
+/* Styling the Back Button */
+.left__section--back {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.label {
+  margin-left: 10px;
+}
+/* Capture preview and overlay */
+.captured-photo-wrapper {
+  position: relative;
+  display:flex;
+  justify-content:center;
+  margin-top: 20px;
+
+}
+
+.captured-photo {
+  width: 100vw;
+  height:100vh;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Overlay for buttons and text */
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:-40%;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1; /* Ensures it's above the image */
+}
+.overlay-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align:center;
+  
+   padding:16px;
+}
+.shot {
+  position:absolute;
+  top: 20%;
+  left: 50%;
+  transform:translateX(-50%);
+  font-size: 24px;
+  color:white;
+}
+.shot_title{
+  display:flex;
+  width:130px;
+  color:white;
+  top:30px;
+}
+/* Buttons in Overlay */
+.overlay-buttons {
+  display: flex;
+  width:250px;
+  margin-top:3px;
+}
+
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Styling the Back Button */
+.left__section--back {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.label {
+  margin-left: 10px;
+}
+/* Capture preview and overlay */
+.captured-photo-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.captured-photo {
+  width:100vw;
+  height:100vh;
+ 
+}
+
+/* Overlay for buttons and text */
+.photo-overlay {
+  position: absolute;
+  display: flex;
+  background-color:none;
+}
+
+.overlay-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  
+}
+
+/* Buttons in Overlay */
+.overlay-buttons {
+  display: flex;
+
+}
+.btn_for_Usethis{
+   padding:10px 20px;
+  background-color:black;
+  color: white;
+  cursor: pointer;
+  width:50px;
+  transition: background-color 0.3s;
+  flex-grow: 1; 
+}
+.btn_for__retake{
+ width:80px;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* Styling the Back Button */
+.left__section--back {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.diamond_img{
+  font-size:20px;
+  transition:1s ease;
+}
+.diamond_img:hover{
+  transform: scale(1.2);
+}
+.diamond-img-cameraSetup{
+   font-size:20px;
+  transition:1s ease;
+  position:absolute;
+}
+.skeleton-overlay-camera{
+ background-color:white
+  ;position: absolute;
+  top: 50%;
+  left:50%;
+  width:500px;
+  
+}
+.box13{
+  top:50%;
+  width: 250px;
+  height: 250px;
+  animation: spin-slower 90s linear infinite reverse;
+  margin: -100px 0 0 -100px;
+  border-radius:12px;
+  opacity:0.2
+}
+.box14 {
+  top:60%;
+  width:300px;
+  height:300px;
+  animation: spin-slow 80s linear infinite;
+  margin:-130px 0 0 -130px;
+  border-radius:12px;
+  opacity:0.1
+}
+.box15 {
+  top:60%;
+  width:300px;
+  height:300px;
+  animation: spin1 80s linear infinite;
+  margin:-130px 0 0 -130px;
+  border-radius:12px;
+  opacity:0.1
+}
+
+.box10{
+  top:58%;
+  width: 280px;
+  right:40%;
+  height:280px;
+  animation: spin-slower 70s linear infinite reverse;
+  margin:-180px 0 0 220px;
+  border-radius:12px;
+  opacity:0.2
+}
+
+.box11{
+  top:50%;
+  width: 330px;
+  right:37%;
+  height:330px;
+  animation: spin-slower 60s linear infinite reverse;
+  margin: -200px 0 0 18px;
+  border-radius:12px;
+  opacity:0.2
+}
+
+.box12{
+  top:50%;
+  width: 380px;
+  right:35%;
+  height:380px;
+  animation: spin-slower 50s linear infinite reverse;
+  margin:-220px 0 0 150px;
+  border-radius:12px;
+  opacity:0.2
+}
+.label {
+  margin-left: 10px;
+}
+
+
+
+.topBar{
+  position: relative;
+  width:100vw;
+  height:50px;
+  background:white;
+  /* this clips any children moving outside */
+
+}
+.left__top {
+  display:flex;
+  position:absolute;
+  width:69px;
+  height:16px;
+  top:23px;
+  left:23px;
+  size:14px;
+ line-height:16px;
+ letter-spacing:-2%;
+
+}
+
+ .wrapper__top__left---right{
+  width:1920px;
+  height:64px;
+ }
+.left__top .intro {
+  margin-left: 10px;
+  font-weight: normal;
+  color: gray;
+}
+.right__top--button {
+  position:absolute; 
+  width: fit-content;
+  height:32px;
+  top: 15px;
+  right:20px;
+  background:black;
+  padding: 8px 16px 8px 16px;
+  font-size: 10px;
+  cursor:pointer;
+}
+.Enter__code {
+  width:60px;
+  height:16px;
+  font-weight:600;
+  font-size:10px;
+  line-height:16px;
+  letter-spacing:-2%;
+  color:white;
+}
+.left__section {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+  overflow:visible !important;
+}
+.right__section {
+  position:absolute;
+  top:50%;
+  right:80px;
+  display:flex;
+  align-items:center;
+  transform:translateY(-50%);
+}
+.label {
+  font-size:14px;
+  margin: 14px 10px;
+}
+.diamonde {
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left__section {
+  z-index: 1;
+}
+
+.typing_label{
+  display:flex;
+  font-size:16px;
+  opacity:0.5;
+  font-weight:600;
+  justify-content:center;
+} 
+.intro{
+  position:relative;
+  top:30%;
+  width:440px;
+  padding:5px;
+  border-bottom:1px solid;
+  border-top:none;
+  border-right:none;
+  border-left:none;
+  font-size:48px;
+  font-weight:600;
+  opacity:0.5;
+text-align: center;}
+.introduction{
+  opacity:0.5;
+  font-size:12px;
+}
+.buttin-icon-shrunk{
+position: relative;
+  background-color:white;
+  border:none;
+  display:flex;
+  justify-items:center;
+   cursor: pointer;
+    z-index: 10;    
+}
+
+
+.bottom__left {
+  position: absolute;
+  bottom:50px;
+  left:70px;
+  font-size: 14px;
+  width:500px;
+  line-height: 1.4;
+}
+.big-diamond {
+  position: absolute;
+  width:460px; /* size of diamond */
+  height:460px;
+  border: 1px solid #ddd; /* faint line */
+  transform: rotate(45deg);
+  background: transparent;
+  z-index: 0;
+}
+
+/* Position on left side */
+.big-diamond.left {
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+/* Position on right side */
+.big-diamond.right {
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: black;
+}
+
+/* Common diamond style */
+.diamond {
+  position: absolute;
+  border: 2px dotted #666;
+  transform: rotate(45deg);
+}
+
+/* Outer diamond */
+.diamond.outer {
+  width: 380px;
+  height: 380px;
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Inner diamond */
+.diamond.inner {
+  width: 280px;
+  height: 280px;
+  animation: spin-slower 30s linear infinite reverse;
+}
+
+/* Center circle */
+.center-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+/* Text with line */
+.text-line {
+  position: absolute;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.text-line .line {
+  width: 80px;
+  height: 1px;
+  background: #666;
+}
+
+.text-line .text {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+/* Animations */
+@keyframes spin-slow {
+  from { transform: rotate(45deg); }
+  to { transform: rotate(405deg); }
+}
+
+@keyframes spin-slower {
+  from { transform: rotate(45deg); }
+  to { transform: rotate(-315deg); }
+}
+.heading {
+  position: absolute;
+  top: 30%;
+  margin-left:40%;
+  transform: translateX(-50%);
+  font-size: 90px;
+  font-weight: bold;
+  text-align: center;
+  z-index:1;
+   transition: transform 0.5s ease, left 0.5s ease;
+}
+
+.heading.move-right {
+  transform:translateX(0);
+  top:40%;
+
+  
+}
+
+.heading.move-left {
+  transform: translateX(calc(-50% - 50%));
+}
+
+.bottom__left {
+  position: absolute;
+  bottom:60px;
+  left:60px;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: sans-serif;
+  z-index: 5;
+  transition: transform 0.5s ease;
+}
+
+.bottom__left.move-right {
+  transform: translateX(40px);
+}
+
+.bottom__left.move-left {
+  transform: translateX(-40px);
+}
+ .diamond-label{
+   position:absolute;
+   top:-15%;
+   left:32%;
+   font-size:14px;
+
+ }
+
+
+.diagonal-line {
+  position:absolute;
+  width: 80px; /* arrow length */
+  height: 2px;
+  background-color: black;
+  top:70%; /* vertical position tweak */
+  left:65.8%; /* horizontal position tweak */
+  transform: rotate(145deg); /* tilt upward */
+  opacity:0.5;
+}
+
+/* Arrowhead */
+.diagonal-line::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top:50%;
+  transform: translateY(-50%) rotate(320deg);
+  width: 3px;
+  height:3px;
+  border-radius:50%;
+  border-top: 2px solid ;
+  border-right: 2px solid ;
+  border-left:2px solid ;
+   border-bottom:2px solid;
+   font-weight:100;
+   background-color:white;
+
+  
+}
+.loading-skeleton{
+ position:absolute;
+ left:50%;
+}
+.galley-button{
+ position: absolute;
+ left:40%;
+ top:50%;
+}
+.gallery_access--text{
+   margin-top:3%;
+   margin-left:61%;
+   opacity:0.9;
+   font-size:14px;
+   position:absolute;
+}
+.Preview_img{
+  display:flex;
+  justify-content: space-around;
+  margin-top:0;
+  border:1px solid rgb(172, 171, 171);
+  width:120px;
+  height:120px;
+  margin-left:85%;
+  opacity:0.5;
+}
+
+.preview_text{
+margin-left:85%;
+font-size:14px;
+top:0;
+padding:5px;
+font-weight:bold;
+}
+.selected_img {
+  width: 120px;
+  height:20px;
+  object-fit: cover;
+  opacity:1;
+  transition: opacity 1s ease-in-out;
+  position: relative;
+
+}
+
+.selected_img.fade-in {
+  opacity: 1;
+}
+
