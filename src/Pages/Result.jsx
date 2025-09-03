@@ -13,7 +13,7 @@ const CameraCapture = () => {
   const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
-
+  
   const handleDeny = () => setShowCameraAccess(false);
 
   const handleButtonClick = () => {
@@ -21,6 +21,7 @@ const CameraCapture = () => {
   };
 
   const handleFileChange = (event) => {
+    setLoading(true);
     const file = event.target.files[0];
     
     if (file) {
@@ -29,9 +30,11 @@ const CameraCapture = () => {
        setSelectedImage(imageURL);
       setTimeout(() => {
         
-        setLoading(false);
-        setLoading(true);
+        
+        
          alert("Image analyzed successfully!")
+         setLoading(false);
+        navigate("/Select", { state: { selectedImage } });
       }, 2000); // simulate processing delay
     }
   };
@@ -39,7 +42,7 @@ const CameraCapture = () => {
   return (
     <>
       <br /><br />
-      <div className="start_anal">To START ANALYSIS</div>
+      <div className="start_anal">TO START ANALYSIS</div>
       <span className="preview_text">Preview</span>
   {/* Only show selected image preview */}
         
@@ -50,8 +53,7 @@ const CameraCapture = () => {
             </div>
        
       <div className="diamond-container">
-        
-
+  
         {/* Skeleton loader while processing */}
         {loading && ( <>
           <div className="skeleton">
@@ -59,14 +61,14 @@ const CameraCapture = () => {
              <div className="diamond-box box11"></div>
              <div className="diamond-box box12"></div>
             <span className="process_data">PREPARING ANALYSIS...</span>
-               <br />
-              <br />
-             <div className="circle circle1"></div>&nbsp;&nbsp;&nbsp;&nbsp;
-              <div className="circle circle2"></div>&nbsp;&nbsp;&nbsp;&nbsp;
-               <div className="circle circle3"></div>
+               <br/> 
+              <div className="circles-wrapper">
+            <div className="circle circle1"></div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div className="circle circle2"></div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div className="circle circle3"></div>
+               </div>
               </div>
-</>
-                    
+            </>   
         )}
         
 
@@ -93,7 +95,7 @@ const CameraCapture = () => {
 
             {/* Camera access modal */}
             {showCameraAccess && (
-              <div className="Camera-access">
+              <div className="Camera-access"><br/>
                 <span className="scan-face">ALLOW A.I. TO SCAN YOUR FACE</span>
                 <hr className="line" />
                 <div>
@@ -133,12 +135,16 @@ const CameraCapture = () => {
       </div>
 
       {/* Back Button */}
-      <div className="left__section--back">
-        <Link to="/testing" className="buttin-icon-shrunk">
-          <img src={buttinIcon} alt="Back Icon" />
-          <span className="label">Back</span>
-        </Link>
-      </div>
+      <Link to="/testing">
+                  <div className="diamond_arrow__wrapper">
+                  <div class="diamond_arrow--button">
+                     <span>◀</span>
+                    </div>
+                     &nbsp;&nbsp;&nbsp;Back
+                    </div>
+              </Link>
+           
+      
     </>
   );
 };

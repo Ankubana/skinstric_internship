@@ -53,7 +53,7 @@ const Camera = () => {
     const timer = setTimeout(() => {
       startCamera();
       setLoading(false)
-    }, 7000); // simulate loading
+    }, 2000); // simulate loading
 
     return () => {
       
@@ -61,19 +61,30 @@ const Camera = () => {
       stopCamera();
     };
   }, []);
-
   return (
     <>
       {/* Skeleton OUTSIDE Take_Photo */}
       {loading && (
+        <div className="skeleton-overlay--wrapper">
         <div className="skeleton-overlay-camera">
-          <div className="diamond-box box13"></div>
-          <div className="diamond-box box14"></div>
-          <div className="diamond-box box15"></div>
-          <br />
-          <img src={DiamondSmall} alt="Rotating Diamond" className="diamond-img-cameraSetup" />
-            <span className="process_data">PREPARING STUP CAMERA</span>
-        </div>
+    <div className="diamond-wrapper">
+      <div className="diamond-box box13"></div>
+      <div className="diamond-box box14"></div>
+      <div className="diamond-box box15"></div>
+
+      {/* One image positioned over all three boxes */}
+      <img 
+        src={DiamondSmall} 
+        alt="Rotating Diamond" 
+        className="diamond-img-cameraSetup" 
+      />
+      <span className="setting_camera"> SETTING UP CAMERA---</span>
+    </div>
+  </div>
+  <div  className="posture-guideline">
+                 TO GET BETTER RESULTS MAKE SURE TO HAVE
+                </div>
+  </div>
         
       )}
 
@@ -94,17 +105,28 @@ const Camera = () => {
               <div className="camera-overlay">
                 <span className="take-picture-text">TAKE PICTURE</span>
               </div>
+              <div className="posture-guidelines">
+                <div  className="posture-guidelines__title">
+                 TO GET BETTER RESULTS MAKE SURE TO HAVE
+                </div>
+            <div className="posture-guidelines__list">
+            <div className="posture-guidelines__item">◇ NEUTRAL EXPRESSION</div> <div className="posture-guidelines__item">◇ FRONTAL POSE</div><div className="posture-guidelines__item">◇ ADEQUATE LIGHTING
+              </div>
+              </div>
+              </div>
               <div className="camera-cercle">
                 <button className="capture-btn" onClick={capturePhoto}>
                   <FontAwesomeIcon icon={faCamera} className="Camera_icon" size="lg" />
                 </button>
+                
               </div>
+              
             </div>
           )}
 
           {/* Captured Photo */}
           {photoSrc && <Capture photoSrc={photoSrc} setPhotoSrc={setPhotoSrc} />}
-
+            
           <canvas ref={canvasRef} style={{ display: "none" }} />
         </div>
       )}
