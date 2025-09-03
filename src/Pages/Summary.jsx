@@ -25,12 +25,16 @@ const DemographicsPage = () => {
   const getTopPrediction = (obj) =>
     Object.entries(obj).reduce((a, b) => (b[1] > a[1] ? b : a));
 
-  const sortByValueDesc = (obj) =>
-    Object.entries(obj).sort((a, b) => b[1] - a[1]);
-
+  const sortByValueAsc = (obj) =>
+  Object.entries(obj).sort((a, b) => a[1] - b[1]);
+    const sortByAgeLabel = (obj) =>
+  Object.entries(obj).sort(([a], [b]) => {
+    const getStart = (label) =>
+      label.includes("+") ? parseInt(label, 10) : parseInt(label.split("-")[0], 10);
+    return getStart(a) - getStart(b);
+  });
   useEffect(() => {
     if (!photoSrc) return;
-
     const analyzeImage = async () => {
       setLoading(true);
       try {
@@ -53,8 +57,8 @@ const DemographicsPage = () => {
           setSelectedAge(topAge);
           setSelectedAgeProb(topAgeProb);
           const [topgender, topGenderProb] = getTopPrediction(data.data.gender);
-          setSelectedgender(selectedgender);
-          setSelectedgenderProb(selectedgenderProb);
+          setSelectedgender(topgender );
+          setSelectedgenderProb(topGenderProb);
         }
       } catch (err) {
         console.error("Error calling API:", err);
@@ -138,10 +142,10 @@ const DemographicsPage = () => {
                 strokeWidth="0.4"
                 strokeDasharray={`${
                   selectedCategory === "race"
-                    ? (selectedRaceProb * 100).toFixed(2)
+                    ? (selectedRaceProb * 100).toFixed(0)
                     : (selectedCategory === "age"?
-                      (selectedAgeProb * 100).toFixed(2)
-                    :(selectedgenderProb*100).toFixed(2))
+                      (selectedAgeProb * 100).toFixed(0)
+                    :(selectedgenderProb*100).toFixed(0))
                 },100`}
                 strokeLinecap="round"
                 fill="none"
@@ -151,10 +155,10 @@ const DemographicsPage = () => {
               />
               <text x="18" y="20" className="chart-text" textAnchor="middle">
                 {selectedCategory === "race"
-                    ? (selectedRaceProb * 100).toFixed(2)
+                    ? (selectedRaceProb * 100).toFixed(0)
                     : (selectedCategory === "age"?
-                      (selectedAgeProb * 100).toFixed(2)
-                    :(selectedgenderProb*100).toFixed(2))
+                      (selectedAgeProb * 100).toFixed(0)
+                    :(selectedgenderProb*100).toFixed(0))
   }
                 %
               </text>
@@ -174,7 +178,7 @@ const DemographicsPage = () => {
             <div className="table-body">
               {/* Race Table */}
               {selectedCategory === "race" &&
-                sortByValueDesc(race).map(([label, value]) => (
+                sortByValueAsc(race).map(([label, value]) => (
                   <div key={label} className="table-row">
                     <button
                       className={`btn_submit ${
@@ -188,15 +192,16 @@ const DemographicsPage = () => {
                       <span className="box_diamond" />
                       <span>{label}</span>
                       <span className="value-text">
-                        {(value * 100).toFixed(1)}%
+                        {(value * 100).toFixed(0)}%
                       </span>
                     </button>
                   </div>
                 ))}
 
               {/* Age Table */}
-              {selectedCategory === "age" &&
-                sortByValueDesc(age).map(([label, value]) => (
+          
+                              {selectedCategory === "age" &&
+                sortByAgeLabel(age).map(([label,value]) => (
                   <div key={label} className="table-row">
                     <button
                       className={`btn_submit ${
@@ -210,28 +215,7 @@ const DemographicsPage = () => {
                       <span className="box_diamond" />
                       <span>{label}</span>
                       <span className="value-text">
-                        {(value * 100).toFixed(1)}%
-                      </span>
-                    </button>
-                  </div>
-                ))}
-                 {/* sex Table */}
-                              {selectedCategory === "sex" &&
-                sortByValueDesc(age).map(([label, value]) => (
-                  <div key={label} className="table-row">
-                    <button
-                      className={`btn_submit ${
-                        selectedAge === label ? "selected" : ""
-                      }`}
-                      onClick={() => {
-                        setSelectedAge(label);
-                        setSelectedAgeProb(value);
-                      }}
-                    >
-                      <span className="box_diamond" />
-                      <span>{label}</span>
-                      <span className="value-text">
-                        {(value * 100).toFixed(1)}%
+                        {(value * 100).toFixed(0)}%
                       </span>
                     </button>
                   </div>
@@ -239,7 +223,7 @@ const DemographicsPage = () => {
 
               {/* Gender Table */}
               {selectedCategory === "gender" &&
-                sortByValueDesc(gender).map(([label, value]) => (
+                sortByValueAsc(gender).map(([label, value]) => (
                   <div key={label} className="table-row">
                    <button
                       className={`btn_submit ${
@@ -253,7 +237,7 @@ const DemographicsPage = () => {
                       <span className="box_diamond" />
                       <span>{label.toUpperCase()}</span>
                       <span className="value-text">
-                        {(value * 100).toFixed(1)}%
+                        {(value * 100).toFixed(0)}%
                       </span>
                     </button>
                   </div>

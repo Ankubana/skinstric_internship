@@ -1759,12 +1759,13 @@ font-weight:bold;
 }
 /* Container */
 .diamond-shape-container {
-  position:absolute;
-  width:500px;
-  height:500px;
-  margin:80px auto;
-  left:40%;
-  top:15%;
+  display: flex;
+  position:relative;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  height:100vh;
+  
 }
 .ResultsDesc{
  padding:24px ;
@@ -1806,14 +1807,14 @@ h2{
   background: #e4e6e9; 
   width:153px;
   height:153px;
-  cursor:pointer;
+  cursor:pointer !important;
   
 }
 
 .diamond-left {
   position:absolute;
-  top: 38%;
-  left:12%;
+  top:27%;
+  left:37.5%;
   width:153px;
   height:153px;
   transform: translateY(-50%) rotate(45deg);
@@ -1821,8 +1822,8 @@ h2{
 }
 
 .diamond-right {
-  top: 38%;
-  left:58%;
+  top: 27%;
+  left:52.5%;
   transform: translateY(-50%) rotate(45deg);
   width:153px;
   height:153px;
@@ -1830,8 +1831,8 @@ h2{
 }
 
 .diamond-bottom {
-  top:45%;
-  left: 50%;
+  top:32.25%;
+  left:50%;
   width:153px;
   height:153px;
   transform: translateX(-50%) rotate(45deg);
@@ -2046,7 +2047,7 @@ scroll-behavior: smooth;
 .chart {
   width: 400px;
   height:400px;
-  top:-25px;
+  top:-12px;
   position: absolute;
 }
 
